@@ -1,6 +1,8 @@
 package com.example.test.entities;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Authors")
@@ -19,6 +21,8 @@ public class Author {
     @Column(name = "Patronymic")
     private String patronymic;
 
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Book> books;
 
 
     public void setId(Long id) {

@@ -13,9 +13,6 @@ public class Book {
     @Column(name = "Id", nullable = false)
     private Long id;
 
-    @Column(name = "Author", nullable = false)
-    private String author;
-
     @Column(name = "ISBN", nullable = false, length = 13)
     private String isbn;
 
@@ -31,6 +28,9 @@ public class Book {
     @Column(name = "Date", nullable = false)
     private LocalTime date;
 
+    @ManyToOne
+    @JoinColumn(name = "AuthorId")
+    private Author author;
 
 
     public void setId(Long id) {
@@ -39,14 +39,6 @@ public class Book {
 
     public Long getId() {
         return id;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getIsbn() {
@@ -87,5 +79,13 @@ public class Book {
 
     public void setDate(LocalTime date) {
         this.date = date;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

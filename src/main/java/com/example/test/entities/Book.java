@@ -2,6 +2,7 @@ package com.example.test.entities;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -26,12 +27,24 @@ public class Book {
     private String genre;
 
     @Column(name = "Date", nullable = false)
-    private LocalTime date;
+    private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "AuthorId")
+    @JoinColumn(name = "Author_Id")
     private Author author;
 
+    public Book() {
+
+    }
+
+    public Book(String isbn, String title, String year, String genre, LocalDate date, Author author) {
+        this.isbn = isbn;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.date = date;
+        this.author = author;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -73,11 +86,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public LocalTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -21,9 +21,17 @@ public class Author {
     @Column(name = "Patronymic")
     private String patronymic;
 
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Book> books;
 
+    public Author() {
+    }
+
+    public Author(String surname, String name, String patronymic) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+    }
 
     public void setId(Long id) {
         this.id = id;

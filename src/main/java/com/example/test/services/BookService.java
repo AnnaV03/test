@@ -20,6 +20,10 @@ public class BookService {
         return bookRepository.findAllByAuthorId(id);
     }
 
+    public List<Book> getAllByTitle(String title) {
+        return bookRepository.findAllByTitle(title);
+    }
+
     public void deleteById(Long id) {
         bookRepository.deleteById(id);
     }

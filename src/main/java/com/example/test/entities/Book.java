@@ -1,9 +1,7 @@
 package com.example.test.entities;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 @Table(name = "Books")
